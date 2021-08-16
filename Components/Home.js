@@ -11,6 +11,9 @@ import {
   TouchableOpacity
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/core";
+import { createStackNavigator } from '@react-navigation/stack';
+
 
 const image = {
   uri: "https://images.unsplash.com/photo-1525824236856-8c0a31dfe3be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0ZXJmYWxsc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -19,7 +22,10 @@ const learnScore = "528";
 const geodexScore = "208";
 const userName = "Jonathan";
 
-export default function App() {
+export default function Home() {
+  const nav = useNavigation()
+
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -75,6 +81,7 @@ export default function App() {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.miniContainer, { backgroundColor: "#277da1" }]}
+                onPress={()=>nav.navigate("Geodex Search")}
               >
                 <Image
                   style={styles.iconImages}
